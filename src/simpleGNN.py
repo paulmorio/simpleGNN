@@ -77,4 +77,39 @@ S = np.dot(np.dot(neg_rec_sqrt_D, A_tilde), neg_rec_sqrt_D)
 ##
 ## SGC Model
 ##
+# Weight matrix (on which we learn) is a |V|xC matrix of weights
+num_classes = max([targets[x] for x in targets.keys()])+1 # +1 for 0
+W = np.random.randn(X.shape[1], num_classes)
 
+# a k-deep SGC model (ie the new data)
+k = 3
+X_sgc = np.dot(np.linalg.matrix_power(S,k), X)
+
+
+##
+## Utility functions
+##
+def feedforward(a, W):
+	a = sigmoid(np.dot(w,a))
+	return a
+
+def vectorized_result(j, num_classes):
+	"""
+	Return a num_classes dimensional unit vector with a 1.0 
+	in the j'th position and zeroes elsewhere. One Hot Encoding
+	"""
+	e = np.zeros((num_classes,1))
+	e[j] = 1.0
+	return e
+
+def sigmoid(z):
+	"""
+	Returns the sigmoid of z
+	"""
+	return (1.0/(1.0+np.exp(-z)))
+
+def sigmoid_prime(z):
+	"""
+	Returns the value of derivative of sigmoid at z
+	"""
+	return sigmoid(z) * (1-sigmoid(z))
