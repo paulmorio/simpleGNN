@@ -8,11 +8,18 @@ I personally found that the original code implementations of GNN and more import
 
 As a result, there is an ordering of the code base from simple single module, simple model to the more complicated full models written OOP style across different modules for less coupling. Interestingly the simplest linear model of a graph convolutional neural network published by Wu et. al. (SGC) was published 3 years after the GCN. For educational purposes we focus on these first building our intuition towards the GCN. We will actually find that the SGC is incredibly good and on par with the GCN in many tasks but badly on others prompting a much needed review into principles of geometric learning and the problem at hand (this is an open research topic!).
 
+- simpleSGC_script.py
+- simpleGCN_script.py
+- pytorch_sgc.py
+- pytorch_gcn.py
+- keras_sgc.py
+- keras_gcn.py
+
+- simpleGNN_pytorch.py: Contains class definitions for the above. 
 
 
+## Theory
+TODO
+### GCN
 
-### Simple-GCN
-
-
-### Simple-GNN
-We aim to greatly simplify the graph neural network by focusing on the aggregation of local spatial characteristics without the non-linearization seen in the popular GCN model. It turns out that this has little to do with the power of the GNN (see Felix Wu et. al. 2019).
+### Linear GCN
