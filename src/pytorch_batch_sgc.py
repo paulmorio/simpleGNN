@@ -162,13 +162,13 @@ class SimpleSGC(nn.Module):
 net = SimpleSGC()
 net = net.float()
 criterion = nn.MSELoss()
-optimizer = optim.SGD(net.parameters(), lr=0.001)
-batch_size = 100
+optimizer = optim.SGD(net.parameters(), lr=0.01)
+batch_size = 200
 
 ##################################
 ###### Training the Network ######
 ##################################
-for epoch in range(500):
+for epoch in range(2000):
 	running_loss = 0.0
 	random.shuffle(torch_training_data)
 	batched_training_data = create_mini_batches(torch_training_data, batch_size)
@@ -205,4 +205,4 @@ with torch.no_grad():
 		total+=1
 		if predicted_index == y:
 			correct += 1
-print('Accuracy of the network on the 10000 test images: %d %%' % (100 * correct / total))
+print('Accuracy of the network on the 1000 test nodes: %d %%' % (100 * correct / total))
