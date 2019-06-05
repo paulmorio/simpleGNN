@@ -62,7 +62,6 @@ features_list = [features_dict[x] for x in features_dict.keys()]
 d = max([item for sublist in features_list for item in sublist]) # number of features
 X = np.zeros((num_nodes, d+1))
 
-
 for row in range(num_nodes):
 	for col in features_dict[row]:
 		X[row,col] = 1.0 # One Hot feature vector for each node
@@ -77,9 +76,9 @@ S = np.dot(np.dot(neg_rec_sqrt_D, A_tilde), neg_rec_sqrt_D)
 ##
 ## SGC Model
 ##
-# Weight matrix (on which we learn) is a |V|xC matrix of weights
-num_classes = max([targets[x] for x in targets.keys()])+1 # +1 for 0
-W = np.random.randn(X.shape[1], num_classes)
+# # Weight matrix (on which we learn) is a |V|xC matrix of weights
+# num_classes = max([targets[x] for x in targets.keys()])+1 # +1 for 0
+# W = np.random.randn(X.shape[1], num_classes)
 
 # a k-deep SGC model (ie the new data)
 k = 3
